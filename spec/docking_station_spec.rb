@@ -9,6 +9,10 @@ describe DockingStation do
   end
 
   it 'docks a bike' do
-    expect(station.dock).to be_truthy
+    expect(station.dock_bike).to be_truthy
+  end
+
+  it 'checks if bike is docked' do
+    expect(station.station_has_bike?).to be_truthy
   end
 end
