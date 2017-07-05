@@ -13,7 +13,8 @@ describe DockingStation do
   end
 
   it 'cannot dock bike when is station is full' do
-    bikes = [Bike.new]
+   bikes = []
+   bikes.length > 19
    expect {bikes.dock_bike}.to raise_error
    end
 

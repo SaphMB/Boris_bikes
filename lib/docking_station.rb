@@ -11,7 +11,7 @@ end
   end
 
   def dock_bike
-    station_has_bike? == false ? bikes << Bike.new : fail
+    bikes.length < 20 ? bikes << Bike.new : fail
   end
 
   def station_has_bike?
