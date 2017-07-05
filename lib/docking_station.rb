@@ -11,7 +11,7 @@ end
   end
 
   def dock_bike
-    station_has_bike? == true ? 'Station full' : bikes << Bike.new
+    station_has_bike? == false ? bikes << Bike.new : fail
   end
 
   def station_has_bike?

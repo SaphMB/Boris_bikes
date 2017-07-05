@@ -8,13 +8,14 @@ describe DockingStation do
     expect(bike.working?).to be_truthy
   end
 
-  it 'docks a bike' do
-    expect(station.dock_bike).to be_truthy
-  end
-
   it 'checks if bike is docked' do
     expect(station.station_has_bike?).to be_truthy
   end
+
+  it 'cannot dock bike when is station is full' do
+    bikes = [Bike.new]
+   expect {bikes.dock_bike}.to raise_error
+   end
 
   it 'raise error when releasing bike from empty station' do
     bikes = []
