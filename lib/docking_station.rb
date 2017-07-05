@@ -7,15 +7,15 @@ def initialize(bikes=[Bike.new])
 end
 
   def release_bike
-    bikes.shift
+    station_has_bike? == true ? bikes.shift : fail
   end
 
   def dock_bike
-    bikes << Bike.new
+    station_has_bike? == true ? 'Station full' : bikes << Bike.new
   end
 
   def station_has_bike?
-    bikes = [] ? true : false
+    bikes == [] ? false : true
   end
 
 end
