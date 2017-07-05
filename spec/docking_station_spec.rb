@@ -22,4 +22,5 @@ describe DockingStation do
     bikes = []
     expect {bikes.release_bike}.to raise_error
   end
+
 end
