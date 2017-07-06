@@ -26,5 +26,9 @@ describe DockingStation do
     expect(client_station.capacity).to eq 10
   end
 
+  it 'does not release broken bikes' do
+    station.dock_bike[0].report_broken
+    expect{station.release_bike}.to raise_error
+  end
 
 end

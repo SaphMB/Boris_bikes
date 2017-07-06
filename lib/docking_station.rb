@@ -23,7 +23,8 @@ class DockingStation
   end
 
   def release_bike
-    empty? ? fail : bikes.shift
+    bikes.each {|bike| bike.working?}
+  #  empty? ? fail : bikes.shift
   end
 
 private
