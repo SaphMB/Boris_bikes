@@ -5,11 +5,6 @@ describe DockingStation do
   test_bike = Bike.new
   it {is_expected.to respond_to :release_bike}
 
-  # it 'relese bike from station' do
-  #   bike = station.release_bike
-  #   expect(bike.working?).to be_truthy
-  # end
-
   it 'checks if bike is docked' do
     station.bikes << [test_bike]
     expect(station.station_has_bike?).to be_truthy
@@ -25,5 +20,11 @@ describe DockingStation do
     bikes = []
     expect {bikes.release_bike}.to raise_error
   end
+
+  it 'allows the client to specify capacity' do
+    client_station = DockingStation.new(10)
+    expect(client_station.capacity).to eq 10
+  end
+
 
 end
