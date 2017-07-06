@@ -6,7 +6,7 @@ class DockingStation
   attr_reader :capacity
 
   def initialize(capacity = DEFAULT_CAPACITY)
-    @bikes = [Bike.new]
+    @bikes = []
     @capacity = capacity
   end
 
@@ -36,10 +36,4 @@ private
     bikes_in_station == 0
   end
 
-end
-
-class Bike
-  def working?
-    true
-  end
 end
