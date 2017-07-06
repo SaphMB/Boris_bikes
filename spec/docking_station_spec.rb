@@ -9,12 +9,14 @@ describe DockingStation do
   end
 
   it 'checks if bike is docked' do
+    bikes = []
+    bikes << [Bike.new]
     expect(station.station_has_bike?).to be_truthy
   end
 
   it 'cannot dock bike when is station is full' do
    bikes = []
-   bikes.length > 19
+   bikes.length >= DockingStation::DEFAULT_CAPACITY
    expect {bikes.dock_bike}.to raise_error
    end
 
