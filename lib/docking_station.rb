@@ -18,8 +18,12 @@ class DockingStation
     bikes == [] ? false : true
   end
 
-  def dock_bike
+  def dock_working_bike
     full? ? fail : bikes << Bike.new
+  end
+
+  def dock_broken_bike
+    full? ? fail : bikes << Bike.new(false)
   end
 
   def release_bike
