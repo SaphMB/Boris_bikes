@@ -23,8 +23,16 @@ class DockingStation
   end
 
   def release_bike
-    bikes.each {|bike| bike.working?}
-  #  empty? ? fail : bikes.shift
+    check_bikes(0)
+  end
+
+  def check_bikes(n)
+    if bikes.length >= n + 1
+      return bikes.delete(bikes[n]) if bikes[n].working? == true
+    check_bikes(n + 1)
+    else
+      fail
+    end
   end
 
 private
