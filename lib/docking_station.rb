@@ -10,24 +10,26 @@ class DockingStation
     bikes.length
   end
 
+  def station_has_bike?
+    bikes == [] ? false : true
+  end
+
+  def dock_bike
+    full? ? fail : bikes << Bike.new
+  end
+
+  def release_bike
+    empty? ? fail : bikes.shift
+  end
+
+private
+
   def full?
     bikes_in_station == 20
   end
 
   def empty?
     bikes_in_station == 0
-  end
-
-  def dock_bike
-    self.full? ? fail : bikes << Bike.new
-  end
-
-  def release_bike
-    self.empty? ? fail : bikes.shift
-  end
-
-  def station_has_bike?
-    bikes == [] ? false : true
   end
 
 end
