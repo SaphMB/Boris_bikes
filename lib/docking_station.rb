@@ -35,7 +35,7 @@ class DockingStation
       return bikes.delete(bikes[n]) if bikes[n].working? == true
     check_bikes(n + 1)
     else
-      fail
+      p "No working bike available"
     end
   end
 

@@ -11,14 +11,15 @@ describe DockingStation do
   end
 
   it 'cannot dock bike when is station is full' do
-   bikes = []
-   bikes.length == DockingStation::DEFAULT_CAPACITY
-   expect {bikes.dock_bike}.to raise_error
+   20.times do 
+     station.dock_working_bike
+   end
+   expect {station.dock_working_bike}.to raise_error
    end
 
   it 'raise error when releasing bike from empty station' do
     bikes = []
-    expect {bikes.release_bike}.to raise_error
+    expect(station.release_bike).to eq "No working bike available"
   end
 
   it 'allows the client to specify capacity' do
@@ -27,8 +28,8 @@ describe DockingStation do
   end
 
   it 'does not release broken bikes' do
-    station.dock_bike[0].report_broken
-    expect{station.release_bike}.to raise_error
+    station.dock_broken_bike
+    expect(station.release_bike).to eq "No working bike available"
   end
 
 end
